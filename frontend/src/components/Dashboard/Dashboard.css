@@ -1,0 +1,76 @@
+.dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .dashboard-layers {
+  width: 100%;
+  flex-grow: 1;
+  position: relative;
+} */
+
+.nav-surface {
+  position: absolute;
+  background-color: #1a1d2c;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+.nav-surface-control {
+  width: 66px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.nav-surface-control-component {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.nav-surface-control-primary {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 66px;
+}
+
+.dash-main {
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 66px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.dash-main-header-nav {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #afafaf;
+  border-radius: 12px 0px 0px 0px;
+}
+
+.dash-main-content {
+  overflow-y: auto;
+  padding-top: 50px;
+}
+
+.dash-main-project-container {
+  width: 60%;
+  height: 20vh;
+  margin: 0 auto;
+}

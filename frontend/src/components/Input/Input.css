@@ -1,0 +1,12 @@
+.form-text-input {
+  height: 38px;
+  border: 1px solid #d4d6db;
+  padding: 0 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-text-input:focus {
+  outline: none;
+  border-color: #c4c5c7;
+}
