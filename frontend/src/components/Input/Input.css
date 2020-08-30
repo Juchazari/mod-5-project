@@ -1,4 +1,4 @@
-.form-text-input {
+.custom-form-input {
   height: 38px;
   border: 1px solid #d4d6db;
   padding: 0 10px;
@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.form-text-input:focus {
+.custom-form-input:focus {
   outline: none;
   border-color: #c4c5c7;
 }

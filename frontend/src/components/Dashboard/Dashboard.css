@@ -13,7 +13,7 @@
 
 .nav-surface {
   position: absolute;
-  background-color: #1a1d2c;
+  background-color: #192029;
   z-index: 1;
   top: 0;
   right: 0;
@@ -35,12 +35,39 @@
 }
 
 .nav-surface-control-primary {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   width: 66px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+.nav-surface-control-primary svg {
+  cursor: pointer;
+}
+
+.setting-icon-wrapper,
+.bell-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.setting-icon-wrapper svg {
+  width: 35px;
+  height: 35px;
+}
+
+.bell-icon-wrapper svg {
+  width: 23px;
+}
+
+.bell-icon-wrapper svg path {
+  fill: #fbb03b;
+}
+
+/* ---- Dashboard Main CSS ---- */
 .dash-main {
   position: absolute;
   background-color: #ffffff;
@@ -67,10 +94,4 @@
 .dash-main-content {
   overflow-y: auto;
   padding-top: 50px;
-}
-
-.dash-main-project-container {
-  width: 60%;
-  height: 20vh;
-  margin: 0 auto;
 }
