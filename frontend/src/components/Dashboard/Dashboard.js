@@ -5,6 +5,7 @@ import './Dashboard.css';
 import SettingsModal from '../Modals/SettingsModal';
 import { ReactComponent as SettingIcon } from '../icons/setting-icon.svg';
 import { ReactComponent as BellIcon } from '../icons/bell-icon.svg';
+import { ReactComponent as CalendarIcon } from '../icons/calendar-icon.svg';
 
 const Dashboard = (props) => {
   const [settingsModal, setSettingsModal] = useState(false);
@@ -40,7 +41,35 @@ const Dashboard = (props) => {
           <div className="dash-main-header-nav"></div>
           <div className="dash-main-content">
             <div className="dash-main-project-container container">
-              <h1>Hello World</h1>
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="portfolio-card">
+                    <div
+                      className="portfolio-card-banner"
+                      style={{
+                        backgroundImage:
+                          'url(' +
+                          'https://images.unsplash.com/photo-1504870712357-65ea720d6078?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80' +
+                          ')'
+                      }}
+                    >
+                      <span className="banner-gradient"></span>
+                    </div>
+                    <div className="portfolio-card-header">
+                      <h3>Mod 5 Project</h3>
+                    </div>
+                    <div className="portfolio-card-info-section">
+                      <div className="status-box">
+                        <p>Active</p>
+                      </div>
+                      <div className="duedate-box">
+                        <CalendarIcon />
+                        <p>Sep 7</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
