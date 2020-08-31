@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import './Dashboard.css';
+import SettingsModal from '../Modals/SettingsModal';
 import { ReactComponent as SettingIcon } from '../icons/setting-icon.svg';
 import { ReactComponent as BellIcon } from '../icons/bell-icon.svg';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const [settingsModal, setSettingsModal] = useState(false);
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    props.history.push('/login');
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard-layers">
@@ -12,13 +21,15 @@ const Dashboard = () => {
           <div className="nav-surface-control">
             <div className="nav-surface-control-component">
               <div className="nav-surface-control-primary">
-                <div className="nav-top-items"></div>
-                <div className="nav-bottom-items">
+                <div className="nav-top-icons"></div>
+                <div className="nav-bottom-icons">
                   <div className="bell-icon-wrapper">
                     <BellIcon />
                   </div>
                   <div className="setting-icon-wrapper">
-                    <SettingIcon />
+                    <SettingIcon
+                      onClick={() => setSettingsModal(!settingsModal)}
+                    />
                   </div>
                 </div>
               </div>
@@ -34,6 +45,14 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <CSSTransition
+        in={settingsModal}
+        classNames="settings-modal"
+        timeout={300}
+        unmountOnExit
+      >
+        <SettingsModal logout={logout} />
+      </CSSTransition>
     </div>
   );
 };
