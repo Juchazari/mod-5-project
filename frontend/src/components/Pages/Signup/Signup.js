@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Input from '../Input/Input';
+import Input from '../../Input/Input';
 
 const Signup = () => {
   return (

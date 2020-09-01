@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import './Dashboard.css';
-import SettingsModal from '../Modals/SettingsModal';
-import { ReactComponent as SettingIcon } from '../icons/setting-icon.svg';
-import { ReactComponent as BellIcon } from '../icons/bell-icon.svg';
-import { ReactComponent as CalendarIcon } from '../icons/calendar-icon.svg';
+import SettingsModal from '../../Modals/SettingsModal';
+import { ReactComponent as SettingIcon } from '../../icons/setting-icon.svg';
+import { ReactComponent as BellIcon } from '../../icons/bell-icon.svg';
+import { ReactComponent as CalendarIcon } from '../../icons/calendar-icon.svg';
 
 const Dashboard = (props) => {
   const [settingsModal, setSettingsModal] = useState(false);

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Nav.css';
+import './NavBar.css';
 
-const Header = () => {
+const NavBar = () => {
   return (
     <nav>
       <h1>
@@ -21,4 +21,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Header from './Nav/Nav';
+import NavBar from '../../NavBars/LandingNav/NavBar';
 
 const Landing = () => {
   return (
     <>
-      <Header />
+      <NavBar />
     </>
   );
 };

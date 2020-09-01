@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Input from '../Input/Input';
+import Input from '../../Input/Input';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');

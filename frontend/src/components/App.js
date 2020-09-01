@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { ProtectedRoute } from './Auth/ProtectedRoute';
 
-import Landing from './Landing/Landing';
-import Login from './Login/Login';
-import Signup from './Signup/Signup';
-import Dashboard from './Dashboard/Dashboard';
+import Landing from './Pages/Landing/Landing';
+import Login from './Pages/Login/Login';
+import Signup from './Pages/Signup/Signup';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import auth from './Auth/auth';
 
 const App = () => {
