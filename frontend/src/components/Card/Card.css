@@ -1,0 +1,150 @@
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.project-card:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.project-card-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  border-radius: 8px 8px 0px 0px;
+  background-size: cover;
+  background-position: 50%;
+  z-index: -1;
+}
+
+.banner-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 8px 8px 0px 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-header h3 {
+  font-size: 14px;
+  color: white;
+}
+
+.ps-settings-icon-wrapper svg {
+  width: 15px;
+  cursor: pointer;
+}
+
+.ps-settings-icon-wrapper svg path {
+  fill: #59b4b0;
+  transition: fill 0.2s;
+}
+
+.ps-settings-icon-wrapper:hover > svg path {
+  fill: #3c7773;
+}
+
+.project-card-info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-duedate-items-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.status-box {
+  display: flex;
+  align-items: center;
+  color: #59b4b0;
+  border-radius: 3px;
+  border: 1px dashed #59b4b0;
+  padding: 1px 10px;
+  margin-right: 15px;
+}
+
+.status-box--planned {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #ff7f34;
+  border-radius: 3px;
+  padding: 1px 10px;
+  margin-right: 15px;
+}
+
+.status-box--active {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #27a027;
+  border-radius: 3px;
+  padding: 1px 10px;
+  margin-right: 15px;
+}
+
+.status-box--completed {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #1cc74f;
+  border-radius: 3px;
+  padding: 1px 10px;
+  margin-right: 15px;
+}
+
+.status-box--onhold-cancelled {
+  display: flex;
+  align-items: center;
+  color: #929292;
+  background-color: #e7e7e7;
+  border-radius: 3px;
+  padding: 1px 10px;
+  margin-right: 15px;
+}
+
+.status-text {
+  font-size: 12px;
+}
+
+.duedate-box {
+  display: flex;
+  align-items: center;
+}
+
+.duedate-box p {
+  font-size: 13px;
+  color: #59b4b0;
+}
+
+.duedate-box svg {
+  width: 12px;
+  margin-right: 5px;
+}
+
+.duedate-box svg path {
+  fill: #59b4b0;
+}

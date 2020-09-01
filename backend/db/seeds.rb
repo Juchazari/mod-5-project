@@ -32,3 +32,10 @@ project3 = Project.create(
   status: "No status",
   banner: "https://images.unsplash.com/photo-1490131784822-b4626a8ec96a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 )
+
+project4 = Project.create(
+  user: user,
+  name: "Manifest Success",
+  due_date: "2020-09-07 12:00:00",
+  banner: "https://images.unsplash.com/photo-1598842403593-98f2607b0b8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+)

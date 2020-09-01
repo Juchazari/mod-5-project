@@ -12,11 +12,11 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        {auth.isAuthenticated() ? <Redirect to="/dashboard" /> : null}
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+        {auth.isAuthenticated() ? <Redirect to='/dashboard' /> : null}
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={Signup} />
+        <ProtectedRoute exact path='/dashboard' component={Dashboard} />
       </BrowserRouter>
     </>
   );

@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_150939) do
     t.datetime "start_date"
     t.datetime "due_date"
     t.datetime "actual_completion_date"
-    t.string "status"
+    t.string "status", default: "No status"
     t.string "banner"
     t.boolean "favorite"
     t.datetime "created_at", precision: 6, null: false

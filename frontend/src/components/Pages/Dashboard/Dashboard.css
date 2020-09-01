@@ -11,62 +11,6 @@
   position: relative;
 } */
 
-.nav-surface {
-  position: absolute;
-  background-color: #192029;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-}
-
-.nav-surface-control {
-  width: 66px;
-  height: 100%;
-  flex-shrink: 0;
-}
-
-.nav-surface-control-component {
-  display: flex;
-  height: 100%;
-  position: relative;
-}
-
-.nav-surface-control-primary {
-  height: 100%;
-  width: 66px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.nav-surface-control-primary svg {
-  cursor: pointer;
-}
-
-.setting-icon-wrapper,
-.bell-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.setting-icon-wrapper svg {
-  width: 35px;
-  height: 35px;
-}
-
-.bell-icon-wrapper svg {
-  width: 23px;
-}
-
-.bell-icon-wrapper svg path {
-  fill: #fbb03b;
-}
-
 /* ---- Dashboard Main CSS ---- */
 .dash-main {
   position: absolute;
@@ -97,88 +41,78 @@
   padding-top: 50px;
 }
 
-.dash-main-project-container {
+.dash-main-projects-container {
   margin-top: 30px;
 }
 
-/* ---- PORTFOLIO CARDS CSS ---- */
-.portfolio-card {
-  position: relative;
+/* ---- PROJECT SETTINGS MODAL CSS ---- */
+
+.modal-window-overlay {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+  overflow-y: auto;
+  padding-left: 66px;
+}
+
+.m5-modal {
+  max-width: 780px;
+  width: 100%;
+  margin-top: 80px;
+  border-radius: 8px;
+  background-color: white;
+  color: #363636;
+}
+
+.m5-modal .modal-project-banner {
   width: 100%;
   height: 150px;
-  padding: 10px;
-  border: 1px solid #d1d1d1;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-}
-
-.portfolio-card:hover {
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-.portfolio-card-banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70%;
   border-radius: 8px 8px 0px 0px;
+  background-image: url('https://images.unsplash.com/photo-1504870712357-65ea720d6078?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80');
   background-size: cover;
   background-position: 50%;
-  z-index: -1;
 }
 
-.banner-gradient {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 8px 8px 0px 0px;
-  background-color: rgba(0, 0, 0, 0.2);
+.m5-modal .modal-project-header {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
 }
 
-.portfolio-card-header h3 {
-  font-size: 14px;
-  color: white;
+.m5-modal .modal-project-header h3 {
+  font-size: 23px;
 }
 
-.portfolio-card-info-section {
+.m5-modal .modal-project-info-body {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: #f0f0f0;
+}
+
+.m5-modal .modal-project-info-body h4 {
+  font-size: 18px;
+  color: #585858;
+}
+
+.m5-modal .modal-project-description {
   display: flex;
-  align-items: center;
+  margin-bottom: 15px;
 }
 
-.status-box {
-  display: flex;
-  align-items: center;
-  color: white;
-  background-color: rgb(0, 153, 0);
-  border-radius: 3px;
-  padding: 2px 10px;
-  margin-right: 15px;
+.m5-modal .modal-project-description svg {
+  width: 14px;
+  margin-right: 10px;
 }
 
-.status-box p {
-  font-size: 12px;
-}
-
-.duedate-box {
-  display: flex;
-  align-items: center;
-}
-
-.duedate-box p {
-  font-size: 13px;
-  color: #59b4b0;
-}
-
-.duedate-box svg {
-  width: 12px;
-  margin-right: 5px;
+.m5-modal .modal-project-description svg path {
+  fill: #585858;
 }

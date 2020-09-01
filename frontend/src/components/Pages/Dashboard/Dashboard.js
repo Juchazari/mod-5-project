@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import './Dashboard.css';
+import NavBar from '../../NavBars/DashboardNav/NavBar';
+import ProjectCard from '../../Card/Card';
 import SettingsModal from '../../Modals/SettingsModal';
-import { ReactComponent as SettingIcon } from '../../icons/setting-icon.svg';
-import { ReactComponent as BellIcon } from '../../icons/bell-icon.svg';
-import { ReactComponent as CalendarIcon } from '../../icons/calendar-icon.svg';
+import { ReactComponent as DescriptionIcon } from '../../icons/description-icon.svg';
 
-const Dashboard = (props) => {
+const Dashboard = props => {
+  const [projects, setProjects] = useState([]);
   const [settingsModal, setSettingsModal] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    fetch('http://localhost:3000/projects', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(projects => setProjects(projects));
+  }, []);
+
+  const projectSettingsClick = project => {
+    console.log(project);
+  };
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -16,59 +33,22 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="dashboard">
-      <div className="dashboard-layers">
-        <div className="nav-surface">
-          <div className="nav-surface-control">
-            <div className="nav-surface-control-component">
-              <div className="nav-surface-control-primary">
-                <div className="nav-top-icons"></div>
-                <div className="nav-bottom-icons">
-                  <div className="bell-icon-wrapper">
-                    <BellIcon />
-                  </div>
-                  <div className="setting-icon-wrapper">
-                    <SettingIcon
-                      onClick={() => setSettingsModal(!settingsModal)}
+    <div className='dashboard'>
+      <div className='dashboard-layers'>
+        <NavBar activateModal={() => setSettingsModal(!settingsModal)} />
+        <div className='dash-main'>
+          <div className='dash-main-header-nav'></div>
+          <div className='dash-main-content'>
+            <div className='dash-main-projects-container container'>
+              <div className='row'>
+                {projects.map(project => (
+                  <div className='col-xl-3 col-lg-6' key={project.id}>
+                    <ProjectCard
+                      project={project}
+                      settingsClick={projectSettingsClick}
                     />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="dash-main">
-          <div className="dash-main-header-nav"></div>
-          <div className="dash-main-content">
-            <div className="dash-main-project-container container">
-              <div className="row">
-                <div className="col-md-3">
-                  <div className="portfolio-card">
-                    <div
-                      className="portfolio-card-banner"
-                      style={{
-                        backgroundImage:
-                          'url(' +
-                          'https://images.unsplash.com/photo-1504870712357-65ea720d6078?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80' +
-                          ')'
-                      }}
-                    >
-                      <span className="banner-gradient"></span>
-                    </div>
-                    <div className="portfolio-card-header">
-                      <h3>Mod 5 Project</h3>
-                    </div>
-                    <div className="portfolio-card-info-section">
-                      <div className="status-box">
-                        <p>Active</p>
-                      </div>
-                      <div className="duedate-box">
-                        <CalendarIcon />
-                        <p>Sep 7</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -76,12 +56,30 @@ const Dashboard = (props) => {
       </div>
       <CSSTransition
         in={settingsModal}
-        classNames="settings-modal"
+        classNames='settings-modal'
         timeout={300}
         unmountOnExit
       >
         <SettingsModal logout={logout} />
       </CSSTransition>
+
+      <div className='modal-window-overlay'>
+        <div className='m5-modal'>
+          <div className='modal-project-banner'></div>
+          <div className='modal-project-header'>
+            <h3 contentEditable='true'>Mod 5 Project</h3>
+          </div>
+          <div className='modal-project-info-body'>
+            <div className='modal-project-description'>
+              <DescriptionIcon />
+              <h4>Description</h4>
+            </div>
+            <div className='modal-project-status'>
+              <h4>Project Status</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
