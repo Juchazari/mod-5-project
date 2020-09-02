@@ -6,6 +6,7 @@ import NavBar from '../../NavBars/DashboardNav/NavBar';
 import ProjectCard from '../../Card/Card';
 import SettingsModal from '../../Modals/SettingsModal';
 import ModalPS from '../../Modals/ModalPS';
+import ModalNP from '../../Modals/ModalNP';
 
 const Dashboard = props => {
   const [projects, setProjects] = useState([]);
@@ -13,6 +14,7 @@ const Dashboard = props => {
 
   const [settingsModal, setSettingsModal] = useState(false);
   const [modalPS, setModalPS] = useState(false);
+  const [modalNP, setModalNP] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -69,6 +71,29 @@ const Dashboard = props => {
     });
   };
 
+  const createNewProject = projectData => {
+    const { name, description } = projectData;
+
+    const jwtoken = localStorage.getItem('token');
+    fetch('http://localhost:3000/projects', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwtoken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        description
+      })
+    })
+      .then(res => res.json())
+      .then(project => {
+        const updatedProjects = [...projects, project];
+        setProjects(updatedProjects);
+      });
+  };
+
   const logout = () => {
     localStorage.removeItem('token');
     props.history.push('/login');
@@ -79,7 +104,11 @@ const Dashboard = props => {
       <div className='dashboard-layers'>
         <NavBar activateModal={() => setSettingsModal(!settingsModal)} />
         <div className='dash-main'>
-          <div className='dash-main-header-nav'></div>
+          <div className='dash-main-header-nav'>
+            <div className='new-project-wrapper'>
+              <button onClick={() => setModalNP(true)}>New Project</button>
+            </div>
+          </div>
           <div className='dash-main-content'>
             <div className='dash-main-projects-container container'>
               <div className='row'>
@@ -115,6 +144,18 @@ const Dashboard = props => {
           project={project}
           updateProjDes={updateProjDes}
           updateProjName={updateProjName}
+        />
+      </CSSTransition>
+
+      <CSSTransition
+        in={modalNP}
+        classNames='modal-np'
+        timeout={300}
+        unmountOnExit
+      >
+        <ModalNP
+          modalClose={() => setModalNP(false)}
+          createNewProject={createNewProject}
         />
       </CSSTransition>
     </div>

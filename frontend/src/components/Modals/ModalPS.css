@@ -167,7 +167,7 @@
 
 .modal-ps-enter-active {
   opacity: 1;
-  transition: opacity 250ms;
+  transition: opacity 150ms;
 }
 
 .modal-ps-exit {
@@ -176,5 +176,5 @@
 
 .modal-ps-exit-active {
   opacity: 0;
-  transition: opacity 250ms;
+  transition: opacity 150ms;
 }
