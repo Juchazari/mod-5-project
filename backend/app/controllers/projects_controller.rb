@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authorized, only: [:index, :show]
+  before_action :authorized, only: [:index, :show, :update]
 
   def index
     projects = Project.where(user: @user)
@@ -14,6 +14,16 @@ class ProjectsController < ApplicationController
     elsif
       render json: { error: "That project either doesn't exist or doesn't belong to you!" }
     end
+  end
+
+  def update
+    Project.find(params[:id]).update(project_params)
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name, :description);
   end
   
 end

@@ -5,11 +5,14 @@ import './Dashboard.css';
 import NavBar from '../../NavBars/DashboardNav/NavBar';
 import ProjectCard from '../../Card/Card';
 import SettingsModal from '../../Modals/SettingsModal';
-import { ReactComponent as DescriptionIcon } from '../../icons/description-icon.svg';
+import ModalPS from '../../Modals/ModalPS';
 
 const Dashboard = props => {
   const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState({});
+
   const [settingsModal, setSettingsModal] = useState(false);
+  const [modalPS, setModalPS] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -24,7 +27,46 @@ const Dashboard = props => {
   }, []);
 
   const projectSettingsClick = project => {
-    console.log(project);
+    setProject(project);
+    setModalPS(true);
+  };
+
+  const updateProjName = (project, newName) => {
+    const updatedProjects = [...projects].map(projObj => {
+      const projectCopy = { ...projObj };
+
+      if (projectCopy.id === project.id) {
+        projectCopy.name = newName;
+      }
+
+      return projectCopy;
+    });
+
+    setProjects(updatedProjects);
+
+    const jwtoken = localStorage.getItem('token');
+    fetch(`http://localhost:3000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${jwtoken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({ name: newName })
+    });
+  };
+
+  const updateProjDes = (project, newDescription) => {
+    const jwtoken = localStorage.getItem('token');
+    fetch(`http://localhost:3000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${jwtoken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({ description: newDescription })
+    });
   };
 
   const logout = () => {
@@ -62,24 +104,19 @@ const Dashboard = props => {
       >
         <SettingsModal logout={logout} />
       </CSSTransition>
-
-      <div className='modal-window-overlay'>
-        <div className='m5-modal'>
-          <div className='modal-project-banner'></div>
-          <div className='modal-project-header'>
-            <h3 contentEditable='true'>Mod 5 Project</h3>
-          </div>
-          <div className='modal-project-info-body'>
-            <div className='modal-project-description'>
-              <DescriptionIcon />
-              <h4>Description</h4>
-            </div>
-            <div className='modal-project-status'>
-              <h4>Project Status</h4>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CSSTransition
+        in={modalPS}
+        classNames='modal-ps'
+        timeout={300}
+        unmountOnExit
+      >
+        <ModalPS
+          modalClose={() => setModalPS(false)}
+          project={project}
+          updateProjDes={updateProjDes}
+          updateProjName={updateProjName}
+        />
+      </CSSTransition>
     </div>
   );
 };

@@ -1,0 +1,180 @@
+.modal-window-overlay {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+  overflow-y: auto;
+  padding-left: 66px;
+}
+
+.modal-ps {
+  position: relative;
+  max-width: 780px;
+  width: 100%;
+  margin-top: 80px;
+  border-radius: 8px;
+  background-color: white;
+  color: #363636;
+}
+
+.modal-close-wrapper {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-close-wrapper:hover {
+  filter: brightness(1.5);
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.modal-close-wrapper svg {
+  width: 15px;
+}
+
+.modal-ps .modal-section-project-banner {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px 8px 0px 0px;
+  background-size: cover;
+  background-position: 50%;
+}
+
+.modal-ps .modal-section-project-name {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
+}
+
+.modal-ps .modal-section-project-name textarea {
+  overflow: hidden;
+  resize: none;
+  width: 100%;
+  height: 35px;
+  padding-left: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #363636;
+  font-size: 23px;
+  font-weight: 500;
+  transition: height 0.2s, background-color 0.2s;
+}
+
+.modal-ps .modal-section-project-name textarea:hover {
+  background-color: #eeeeee;
+}
+
+.modal-ps .modal-section-project-name textarea:focus {
+  background-color: white;
+  outline: none;
+  overflow: auto;
+}
+
+.modal-ps .modal-content-body {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: #f0f0f0;
+}
+
+.modal-ps .modal-content-body h4 {
+  font-size: 18px;
+  color: #585858;
+}
+
+.modal-ps .modal-section-project-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-ps .title-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.modal-ps .modal-section-project-description svg {
+  width: 14px;
+  margin-right: 10px;
+}
+
+.modal-ps .modal-section-project-description svg path {
+  fill: #585858;
+}
+
+.modal-ps .modal-section-project-description textarea {
+  overflow: hidden;
+  resize: none;
+  width: 100%;
+  height: 32px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e4e4e4;
+  color: rgb(114, 114, 114);
+  font-size: 15px;
+  transition: height 0.2s, background-color 0.2s;
+}
+
+.modal-ps .modal-section-project-description textarea:hover {
+  background-color: #dddddd;
+}
+
+.modal-ps .modal-section-project-description textarea:focus {
+  height: 75px;
+  background-color: white;
+  color: #363636;
+  outline: none;
+  overflow: auto;
+}
+
+.modal-ps .modal-section-project-description button {
+  width: 85px;
+  padding: 3px 0px;
+  border-radius: 5px;
+  border: none;
+  background-color: #41b995;
+  color: white;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.modal-ps .modal-section-project-description button:hover {
+  background-color: #37ad8a;
+}
+
+/* ---- MODAL CSS TRANSITIONS -----*/
+
+.modal-ps-enter {
+  opacity: 0;
+}
+
+.modal-ps-enter-active {
+  opacity: 1;
+  transition: opacity 250ms;
+}
+
+.modal-ps-exit {
+  opacity: 1;
+}
+
+.modal-ps-exit-active {
+  opacity: 0;
+  transition: opacity 250ms;
+}
