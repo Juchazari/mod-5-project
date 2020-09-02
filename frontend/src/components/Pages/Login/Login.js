@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Input from '../../Input/Input';
+// import auth from '../../Auth/auth';
 
 const Login = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [error, setError] = useState(false);
+
+  // useEffect(() => {
+  //   if (auth.isAuthenticated()) {
+  //     props.history.push('/dashboard');
+  //   }
+  // }, []);
 
   const handleSubmit = e => {
     e.preventDefault();

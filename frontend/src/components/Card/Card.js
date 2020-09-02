@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Card.css';
 import { ReactComponent as CalendarIcon } from '../icons/calendar-icon.svg';
@@ -53,8 +54,11 @@ const Card = props => {
             <p>Sep 7</p>
           </div>
         </div>
-        <div className='ps-settings-icon-wrapper'>
-          <ProjectSettingsIcon onClick={() => props.settingsClick(project)} />
+        <div
+          className='ps-settings-icon-wrapper'
+          onClick={() => props.settingsClick(project)}
+        >
+          <ProjectSettingsIcon />
         </div>
       </div>
     </div>

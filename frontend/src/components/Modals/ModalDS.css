@@ -1,4 +1,4 @@
-.settings-modal {
+.modal-ds {
   position: absolute;
   bottom: 30px;
   left: 60px;
@@ -9,7 +9,7 @@
   padding: 10px 15px;
 }
 
-.settings-modal-section {
+.modal-ds-section {
   display: flex;
   align-items: center;
   padding: 5px 15px;
@@ -17,38 +17,38 @@
   cursor: pointer;
 }
 
-.settings-modal-section:hover {
+.modal-ds-section:hover {
   background-color: #e0e0e0;
 }
 
-.settings-modal .profile-section svg {
+.modal-ds .profile-section svg {
   width: 15px;
   margin-right: 15px;
 }
 
-.settings-modal .logout-section svg {
+.modal-ds .logout-section svg {
   width: 18px;
   margin-right: 15px;
 }
 
 /* ---- CSSTransition ---- */
 
-.settings-modal-enter {
+.modal-ds-enter {
   opacity: 0;
   transform: scale(0.9);
 }
 
-.settings-modal-enter-active {
+.modal-ds-enter-active {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 250ms, transform 250ms;
 }
 
-.settings-modal-exit {
+.modal-ds-exit {
   opacity: 1;
 }
 
-.settings-modal-exit-active {
+.modal-ds-exit-active {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 250ms, transform 250ms;

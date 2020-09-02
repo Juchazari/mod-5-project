@@ -1,23 +1,20 @@
 import React from 'react';
 
-import './ModalSettings.css';
+import './ModalDS.css';
 import { ReactComponent as UserIcon } from '../icons/user-icon.svg';
 import { ReactComponent as LogoutIcon } from '../icons/logout-icon.svg';
 
-const SettingsModal = props => {
+const ModalDS = props => {
   return (
-    <div className='settings-modal'>
-      <div className='profile-section settings-modal-section'>
+    <div className='modal-ds'>
+      <div className='profile-section modal-ds-section'>
         <UserIcon /> <p>My Profile</p>
       </div>
-      <div
-        className='logout-section settings-modal-section'
-        onClick={props.logout}
-      >
+      <div className='logout-section modal-ds-section' onClick={props.logout}>
         <LogoutIcon /> <p>Logout</p>
       </div>
     </div>
   );
 };
 
-export default SettingsModal;
+export default ModalDS;

@@ -46,6 +46,10 @@
   height: 35px;
 }
 
+.setting-icon-wrapper svg path {
+  fill: white;
+}
+
 .bell-icon-wrapper svg {
   width: 23px;
 }

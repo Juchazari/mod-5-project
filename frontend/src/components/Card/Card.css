@@ -51,9 +51,15 @@
   color: white;
 }
 
+.ps-settings-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .ps-settings-icon-wrapper svg {
   width: 15px;
-  cursor: pointer;
 }
 
 .ps-settings-icon-wrapper svg path {
