@@ -11,8 +11,7 @@
   position: relative;
 } */
 
-/* ---- Dashboard Main CSS ---- */
-.dash-main {
+.dashboard-body {
   position: absolute;
   background-color: #ffffff;
   z-index: 1000;
@@ -24,42 +23,5 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: 12px 0px 0px 12px;
-}
-
-.dash-main-header-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 66px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #afafaf;
-  border-radius: 12px 0px 0px 0px;
-  z-index: 9999;
-}
-
-.dash-main-content {
-  overflow-y: auto;
-  padding-top: 50px;
-}
-
-.dash-main-projects-container {
-  margin-top: 30px;
-}
-
-/* ---- NEW PROJECT BUTTON CSS ---- */
-.new-project-wrapper button {
-  border: none;
-  border-radius: 5px;
-  padding: 3px 20px;
-  background-color: #8888ff;
-  color: white;
-  transition: background-color 0.2s;
-}
-
-.new-project-wrapper button:hover {
-  background-color: #7b7bff;
+  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.5);
 }

@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_150939) do
     t.datetime "actual_completion_date"
     t.string "status", default: "No status"
     t.string "banner"
-    t.boolean "favorite"
+    t.boolean "favorite", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"

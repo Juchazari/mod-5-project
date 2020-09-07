@@ -51,43 +51,23 @@
   color: white;
 }
 
-.ps-settings-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.ps-settings-icon-wrapper svg {
-  width: 15px;
-}
-
-.ps-settings-icon-wrapper svg path {
-  fill: #59b4b0;
-  transition: fill 0.2s;
-}
-
-.ps-settings-icon-wrapper:hover > svg path {
-  fill: #3c7773;
-}
-
-.project-card-info-section {
+.project-card-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.status-duedate-items-wrapper {
+.card-info-left-items {
   display: flex;
   align-items: center;
 }
 
-.status-box {
+.status-box--no-status {
   display: flex;
   align-items: center;
-  color: #59b4b0;
+  color: #c7c7c7;
   border-radius: 3px;
-  border: 1px dashed #59b4b0;
+  border: 1px dashed #c7c7c7;
   padding: 1px 10px;
   margin-right: 15px;
 }
@@ -136,21 +116,27 @@
   font-size: 12px;
 }
 
-.duedate-box {
+.project-duedate-wrapper {
   display: flex;
   align-items: center;
 }
 
-.duedate-box p {
-  font-size: 13px;
-  color: #59b4b0;
-}
-
-.duedate-box svg {
-  width: 12px;
+.project-duedate-wrapper svg {
+  fill: #c5c5c5;
+  width: 0.9em;
   margin-right: 5px;
 }
 
-.duedate-box svg path {
-  fill: #59b4b0;
+.project-duedate-wrapper p {
+  font-size: 13px;
+  color: #c5c5c5;
+}
+
+.hi-dots-icon {
+  fill: #858585;
+  transition: fill 0.2s;
+}
+
+.hi-dots-icon-wrapper:hover > .hi-dots-icon {
+  fill: #494949;
 }

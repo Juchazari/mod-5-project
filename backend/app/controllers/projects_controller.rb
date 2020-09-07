@@ -10,7 +10,14 @@ class ProjectsController < ApplicationController
     project = Project.find_by(id: params[:id], user: @user)
     
     if project
-      render json: project
+      render json: project, include: {
+        project_members: {
+          include: :user 
+        },
+        task_buckets: {
+          include: :tasks
+        }
+      }
     elsif
       render json: { error: "That project either doesn't exist or doesn't belong to you!" }
     end

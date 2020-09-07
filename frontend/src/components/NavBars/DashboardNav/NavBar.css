@@ -29,31 +29,46 @@
   justify-content: space-between;
 }
 
-.nav-surface-control-primary svg {
+.nav-surface svg {
   cursor: pointer;
 }
 
-.setting-icon-wrapper,
-.bell-icon-wrapper {
+.top-icons {
+  margin-top: 30px;
+}
+
+.icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.setting-icon-wrapper svg {
-  width: 35px;
-  height: 35px;
+.io-logo-icon,
+.md-dash-icon,
+.md-noti-icon {
+  width: 2em;
+  height: 2em;
 }
 
-.setting-icon-wrapper svg path {
-  fill: white;
+.fi-sett-icon {
+  width: 1.6em;
+  height: 1.6em;
 }
 
-.bell-icon-wrapper svg {
-  width: 23px;
+.io-logo-icon path {
+  color: #ffffff;
 }
 
-.bell-icon-wrapper svg path {
-  fill: #fbb03b;
+.md-dash-icon path {
+  color: #9992ff;
+}
+
+.md-noti-icon path {
+  color: #ffcf31;
+}
+
+.fi-sett-icon path,
+.fi-sett-icon circle {
+  color: #c7c7c7;
 }

@@ -1,0 +1,80 @@
+.project-header-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 66px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0px 15px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #afafaf;
+  border-radius: 12px 0px 0px 0px;
+  z-index: 100;
+}
+
+.project-header-nav .phn-divider {
+  width: 1px;
+  height: 40%;
+  background-color: #d3d3d3;
+  margin: 0px 15px;
+}
+
+.project-header-nav .psp-project-name-wrapper {
+  margin-right: 15px;
+}
+
+.project-header-nav .psp-project-name-wrapper h2 {
+  color: #363636;
+  font-size: 23px;
+}
+
+.project-header-nav .fav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.project-header-nav .fav-icon-wrapper svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.project-header-nav .project-members-wrapper {
+  display: flex;
+}
+
+.project-header-nav .project-member-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #c5c5c5;
+  border: 1px solid #666666;
+  margin-right: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-header-nav .Admin {
+  border: 2px solid #ac87f7;
+}
+
+.project-header-nav .project-member-icon img {
+  width: 100%;
+}
+
+.project-header-nav .project-members-wrapper button {
+  border: none;
+  border-radius: 5px;
+  padding: 0px 15px;
+  background-color: #8888ff;
+  color: white;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.project-header-nav .project-members-wrapper button:hover {
+  background-color: #7b7bff;
+}

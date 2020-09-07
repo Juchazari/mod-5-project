@@ -9,7 +9,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.datetime :actual_completion_date
       t.string :status, default: "No status"
       t.string :banner
-      t.boolean :favorite
+      t.boolean :favorite, default: false
 
       t.timestamps
     end

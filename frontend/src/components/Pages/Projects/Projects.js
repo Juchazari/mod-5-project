@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import './Projects.css';
-import ProjectCard from '../../Card/Card';
+import ProjectCard from '../../ProjectCard/ProjectCard';
 import ModalNP from '../../Modals/ModalNP';
 import ModalPS from '../../Modals/ModalPS';
 
@@ -94,13 +94,13 @@ const Projects = props => {
   return (
     <>
       <div className='projects-page'>
-        <div className='dash-main-header-nav'>
-          <div className='new-project-wrapper'>
+        <div className='projects-header-nav'>
+          <div className='new-project-btn-wrapper'>
             <button onClick={() => setModalNP(true)}>New Project</button>
           </div>
         </div>
-        <div className='dash-main-content'>
-          <div className='dash-main-projects-container container'>
+        <div className='projects-section'>
+          <div className='projects-container container'>
             <div className='row'>
               {projects.map(project => (
                 <div className='col-xl-3 col-lg-6' key={project.id}>

@@ -20,7 +20,7 @@ const Dashboard = props => {
     <div className='dashboard'>
       <div className='dashboard-layers'>
         <NavBar activateModal={() => setModalDS(!modalDS)} />
-        <div className='dash-main'>
+        <div className='dashboard-body'>
           <Route exact path='/dashboard' component={Projects} />
           <Route exact path='/dashboard/projects/:id' component={Project} />
         </div>

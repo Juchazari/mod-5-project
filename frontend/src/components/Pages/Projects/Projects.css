@@ -1,4 +1,8 @@
-.dash-main-header-nav {
+.projects-page {
+  overflow-y: auto;
+}
+
+.projects-header-nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -10,20 +14,10 @@
   background-color: #ffffff;
   border-bottom: 1px solid #afafaf;
   border-radius: 12px 0px 0px 0px;
-  z-index: 9999;
+  z-index: 100;
 }
 
-.dash-main-content {
-  overflow-y: auto;
-  padding-top: 50px;
-}
-
-.dash-main-projects-container {
-  margin-top: 30px;
-}
-
-/* ---- NEW PROJECT BUTTON CSS ---- */
-.new-project-wrapper button {
+.new-project-btn-wrapper button {
   border: none;
   border-radius: 5px;
   padding: 3px 20px;
@@ -32,6 +26,14 @@
   transition: background-color 0.2s;
 }
 
-.new-project-wrapper button:hover {
+.new-project-btn-wrapper button:hover {
   background-color: #7b7bff;
+}
+
+.projects-section {
+  padding-top: 50px;
+}
+
+.projects-container {
+  margin-top: 30px;
 }
