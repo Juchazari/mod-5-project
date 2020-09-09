@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_150939) do
   create_table "tasks", force: :cascade do |t|
     t.bigint "task_bucket_id", null: false
     t.string "name"
-    t.text "description"
+    t.text "description", default: ""
     t.datetime "due_date"
     t.string "banner"
     t.boolean "completed"

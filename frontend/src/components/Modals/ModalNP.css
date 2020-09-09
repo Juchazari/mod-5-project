@@ -3,9 +3,9 @@
   max-width: 500px;
   width: 100%;
   margin-top: 80px;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: white;
-  color: #363636;
+  color: #495057;
   padding: 30px 20px;
 }
 
@@ -80,17 +80,17 @@
   padding: 3px 10px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(65, 185, 149);
+  background-color: #2196f3;
   color: white;
   transition: background-color 0.2s;
 }
 
 .modal-np button:hover {
-  background-color: #37ad8a;
+  background-color: #1a8deb;
 }
 
 .modal-np button:disabled {
-  background-color: rgba(65, 185, 149, 0.5);
+  background-color: rgb(33, 150, 243, 0.3);
 }
 
 /* ---- MODAL CSS TRANSITIONS -----*/

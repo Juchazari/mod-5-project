@@ -13,9 +13,14 @@
   z-index: 100;
 }
 
-.project-header-nav .phn-divider {
+.project-info-items {
+  display: flex;
+  align-items: center;
+}
+
+.project-header-nav .project-info-items .phn-divider {
   width: 1px;
-  height: 40%;
+  height: 20px;
   background-color: #d3d3d3;
   margin: 0px 15px;
 }
@@ -25,7 +30,7 @@
 }
 
 .project-header-nav .psp-project-name-wrapper h2 {
-  color: #363636;
+  color: #3b4044;
   font-size: 23px;
 }
 
@@ -66,9 +71,9 @@
 
 .project-header-nav .project-members-wrapper button {
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 0px 15px;
-  background-color: #8888ff;
+  background-color: #2196f3;
   color: white;
   transition: background-color 0.2s;
   font-size: 14px;
@@ -76,5 +81,5 @@
 }
 
 .project-header-nav .project-members-wrapper button:hover {
-  background-color: #7b7bff;
+  background-color: #1a8deb;
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { GoCalendar } from 'react-icons/go';
-import { HiDotsVertical } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 import './ProjectCard.css';
@@ -54,12 +53,6 @@ const Card = props => {
               <GoCalendar className='go-calendar-icon' />
               <p>Sep 7</p>
             </div>
-          </div>
-          <div
-            className='hi-dots-icon-wrapper'
-            onClick={() => props.settingsClick(project)}
-          >
-            <HiDotsVertical className='hi-dots-icon' />
           </div>
         </div>
       </div>

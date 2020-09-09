@@ -19,15 +19,15 @@
 
 .new-project-btn-wrapper button {
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 3px 20px;
-  background-color: #8888ff;
+  background-color: #2196f3;
   color: white;
   transition: background-color 0.2s;
 }
 
 .new-project-btn-wrapper button:hover {
-  background-color: #7b7bff;
+  background-color: #1a8deb;
 }
 
 .projects-section {

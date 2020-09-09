@@ -18,7 +18,7 @@ user2 = User.create(
   avatar: Faker::Avatar.image
 )
 
-bucket_names = ["In Progress", "On Hold", "Completed"]
+bucket_names = ["Parking lot", "Not started", "In progress", "Completed"]
 
 project = Project.create(
   user: user,
