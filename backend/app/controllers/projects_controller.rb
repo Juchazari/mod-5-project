@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authorized, only: [:index, :show, :update, :create]
+  before_action :authorized, only: [:index, :show, :update, :create, :destroy]
 
   def index
     projects = Project.where(user: @user)
@@ -23,10 +23,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def update
-    Project.find(params[:id]).update(project_params)
-  end
-
   def create
     project = Project.create(
       user: @user,
@@ -38,10 +34,32 @@ class ProjectsController < ApplicationController
     render json: project
   end
 
+  def update
+    project = Project.find(params[:id])
+    project.update(project_params)
+
+    render json: project, include: {
+      project_members: {
+        include: :user 
+      },
+      task_buckets: {
+        include: :tasks
+      }
+    }
+  end
+
+  def destroy
+    project = Project.find(params[:id])
+
+    if project.destroy
+      render json: { success: true}
+    end
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:name, :description);
+    params.require(:project).permit(:name, :description, :start_date, :due_date, :actual_completion_date, :status, :banner, :favorite);
   end
   
 end

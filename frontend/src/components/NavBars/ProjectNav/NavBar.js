@@ -1,6 +1,7 @@
 import React from 'react';
 import { TiStarOutline } from 'react-icons/ti';
 import { TiStar } from 'react-icons/ti';
+import { GoSettings } from 'react-icons/go';
 
 import './NavBar.css';
 
@@ -23,6 +24,12 @@ const NavBar = props => {
           ))}
           <button>Invite</button>
         </div>
+      </div>
+      <div className='project-settings-btn-wrapper'>
+        <button onClick={props.modalPS}>
+          <GoSettings />
+          Settings
+        </button>
       </div>
     </div>
   );

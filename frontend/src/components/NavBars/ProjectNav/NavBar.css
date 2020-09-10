@@ -5,12 +5,13 @@
   left: 66px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 50px;
   padding: 0px 15px;
   background-color: #ffffff;
   border-bottom: 1px solid #afafaf;
   border-radius: 12px 0px 0px 0px;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .project-info-items {
@@ -82,4 +83,21 @@
 
 .project-header-nav .project-members-wrapper button:hover {
   background-color: #1a8deb;
+}
+
+.project-settings-btn-wrapper button {
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: white;
+  padding: 3px 15px;
+  transition: background-color 0.2s;
+}
+
+.project-settings-btn-wrapper button:hover {
+  background-color: #1a8deb;
+}
+
+.project-settings-btn-wrapper button svg {
+  margin-right: 10px;
 }

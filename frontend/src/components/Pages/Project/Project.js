@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import './Project.css';
 import NavBar from '../../NavBars/ProjectNav/NavBar';
 import TaskBucket from '../../TaskBucket/TaskBucket';
+import ModalPS from '../../Modals/ModalPS';
 import ModalTI from '../../Modals/ModalTI';
 import ModalTBD from '../../Modals/ModalTBD';
+import ModalPD from '../../Modals/ModalPD';
 
-const Project = () => {
+const Project = props => {
   let { id } = useParams();
   const token = localStorage.getItem('token');
+
   const [project, setProject] = useState({});
   const [favorite, setFavorite] = useState(false);
   const [projectMembers, setProjectMembers] = useState([]);
   const [taskBuckets, setTaskBuckets] = useState([]);
+
+  // State: Project Settings Modal
+  const [modalPS, setModalPS] = useState(false);
+  const [modalPD, setModalPD] = useState(false);
+
+  // State: Task Info or Data Modal
   const [modalTI, setModalTI] = useState(false);
   const [clickedTask, setClickedTask] = useState({});
+
+  // State: Bucket Delete Confirmation Modal
   const [modalTBD, setModalTBD] = useState(false);
   const [clickedBucketDelete, setClickedBucketDelete] = useState({});
 
@@ -35,6 +46,35 @@ const Project = () => {
         setTaskBuckets(project.task_buckets);
       });
   }, []);
+
+  const updateProjectInfo = info => {
+    fetch(`http://localhost:3000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(info)
+    })
+      .then(res => res.json())
+      .then(project => setProject(project));
+  };
+
+  const deleteProject = () => {
+    fetch(`http://localhost:3000/projects/${project.id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          props.history.push('/dashboard');
+        }
+      });
+  };
 
   // Creates new task for a bucket
   const createNewTask = (task, bucket) => {
@@ -63,13 +103,13 @@ const Project = () => {
       });
   };
 
-  // Activates a modal for a specific task
+  // Modal popup for a specific task
   const activateTaskModal = task => {
     setModalTI(true);
     setClickedTask(task);
   };
 
-  // Updates the name for a task
+  // Updates any info or data for a task
   const updateTaskInfo = (taskId, info, taskExtra = {}) => {
     let taskPIBucketChange;
     const { bucketChange, task, bucket } = taskExtra;
@@ -103,6 +143,7 @@ const Project = () => {
       });
   };
 
+  // Frontend: Moves task from one bucket to another
   const removeTaskFromBucket = (task, bucket, newPIBucket) => {
     const updatedTasks = bucket.tasks.filter(taskObj => taskObj.id !== task.id);
     const upTasksForBuckets = taskBuckets.map(taskBucket => {
@@ -123,11 +164,13 @@ const Project = () => {
     setTaskBuckets(updatedBuckets);
   };
 
+  // Bucket delete confirmation Modal
   const bucketDeleteConf = bucket => {
     setModalTBD(true);
     setClickedBucketDelete(bucket);
   };
 
+  // Deletes a task Bucket
   const deleteTaskBucket = bucket => {
     fetch(`http://localhost:3000/task_buckets/${bucket.id}`, {
       method: 'DELETE',
@@ -142,6 +185,7 @@ const Project = () => {
       });
   };
 
+  // Updates a task Buckets Name
   const updateBucketName = (bucket, name) => {
     fetch(`http://localhost:3000/task_buckets/${bucket.id}`, {
       method: 'PATCH',
@@ -161,6 +205,7 @@ const Project = () => {
           project={project}
           favorite={favorite}
           projectMembers={projectMembers}
+          modalPS={() => setModalPS(true)}
         />
         <div className='project-contents-section'>
           <div
@@ -184,6 +229,7 @@ const Project = () => {
         </div>
       </div>
 
+      {/* Task Info Modal */}
       <CSSTransition
         in={modalTI}
         classNames='modal-ti'
@@ -199,6 +245,7 @@ const Project = () => {
         />
       </CSSTransition>
 
+      {/* Task Bucket Delete mini popup */}
       <CSSTransition
         in={modalTBD}
         classNames='modal-tbd'
@@ -209,6 +256,33 @@ const Project = () => {
           modalClose={() => setModalTBD(false)}
           taskBucket={clickedBucketDelete}
           deleteTaskBucket={deleteTaskBucket}
+        />
+      </CSSTransition>
+
+      {/* Project Settings Sidebar */}
+      <CSSTransition
+        in={modalPS}
+        classNames='sidebar-ps'
+        timeout={300}
+        unmountOnExit
+      >
+        <ModalPS
+          project={project}
+          updateProjectInfo={updateProjectInfo}
+          modalClose={() => setModalPS(false)}
+          projDeleteModal={() => setModalPD(true)}
+        />
+      </CSSTransition>
+
+      <CSSTransition
+        in={modalPD}
+        classNames='modal-pd'
+        timeout={300}
+        unmountOnExit
+      >
+        <ModalPD
+          deleteProject={deleteProject}
+          modalClose={() => setModalPD(false)}
         />
       </CSSTransition>
     </>
