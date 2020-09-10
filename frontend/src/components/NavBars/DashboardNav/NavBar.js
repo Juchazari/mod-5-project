@@ -1,9 +1,9 @@
 import React from 'react';
-import { IoLogoWindows } from 'react-icons/io';
 import { MdNotifications } from 'react-icons/md';
 import { MdDashboard } from 'react-icons/md';
 import { FiSettings } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../icons/logo.svg';
 
 import './NavBar.css';
 
@@ -15,7 +15,9 @@ const NavBar = props => {
           <div className='nav-surface-control-primary'>
             <div className='top-icons'>
               <div className='icon-wrapper'>
-                <IoLogoWindows className='io-logo-icon' />
+                <Link to='/dashboard'>
+                  <Logo className='io-logo-icon' />
+                </Link>
               </div>
               <div className='icon-wrapper'>
                 <Link to='/dashboard'>

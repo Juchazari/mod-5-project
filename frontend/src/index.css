@@ -28,6 +28,18 @@ a:hover {
 
 /* ---- LOGIN / SIGNUP CSS ---- */
 
+.login-page .login-header .logo-link-wrapper,
+.signup-page .signup-header .logo-link-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.login-page .login-header svg,
+.signup-page .signup-header svg {
+  width: 2.5em;
+  height: 2.5em;
+}
+
 .login-page,
 .signup-page {
   padding: 40px 60px;
@@ -64,6 +76,32 @@ a:hover {
 .login-body .form-input-control,
 .signup-body .form-input-control {
   margin-bottom: 20px;
+}
+
+.login-button,
+.signup-button {
+  width: 100%;
+  padding: 3px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover,
+.signup-button:hover {
+  background-color: #1a8deb;
+}
+
+.signup-button-link,
+.login-button-link {
+  color: #2196f3;
+}
+
+.signup-button-link:hover,
+.login-button-link:hover {
+  color: #1280da;
 }
 
 .signup-body .input-spacer {

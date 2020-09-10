@@ -1,5 +1,11 @@
 class TaskBucketsController < ApplicationController
-    before_action :authorized, only: [:update, :destroy]
+    before_action :authorized, only: [:create, :update, :destroy]
+
+    def create
+        task_bucket = TaskBucket.create(task_bucket_params)
+
+        render json: task_bucket, include: :tasks
+    end
 
     def update
         TaskBucket.find(params[:id]).update(task_bucket_params)
@@ -21,6 +27,6 @@ class TaskBucketsController < ApplicationController
     private
 
     def task_bucket_params
-        params.require(:task_bucket).permit(:name)
+        params.require(:task_bucket).permit(:project_id, :name)
     end
 end

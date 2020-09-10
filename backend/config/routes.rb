@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get  'api/current_user',  to: 'users#current_user'
   
   resources :projects,     only: [:index, :show, :update, :create, :destroy]
-  resources :task_buckets, only: [:update, :destroy]
+  resources :task_buckets, only: [:create, :update, :destroy]
   resources :tasks,        only: [:update, :create]
+  resources :banners,      only: [:index]
 end

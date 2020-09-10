@@ -73,7 +73,7 @@
 .project-header-nav .project-members-wrapper button {
   border: none;
   border-radius: 4px;
-  padding: 0px 15px;
+  padding: 3px 15px;
   background-color: #2196f3;
   color: white;
   transition: background-color 0.2s;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../icons/logo.svg';
 
 import Input from '../../Input/Input';
 // import auth from '../../Auth/auth';
@@ -44,11 +45,15 @@ const Login = props => {
   return (
     <div className='login-page'>
       <div className='login-header'>
-        <h1>
-          <Link to='/'>LOGO</Link>
-        </h1>
+        <Link to='/' className='logo-link-wrapper'>
+          <Logo />
+          <h4>anager</h4>
+        </Link>
         <p>
-          Don't have an account? <Link to='/signup'>Sign up</Link>
+          Don't have an account?{' '}
+          <Link to='/signup' className='signup-button-link'>
+            Sign up
+          </Link>
         </p>
       </div>
       <div className='login-body'>
@@ -71,7 +76,10 @@ const Login = props => {
             />
             {error ? <p className='auth-error-msg'>{error}</p> : null}
           </div>
-          <Input type={'submit'} value={'Log In'} />
+          {/* <Input type={'submit'} value={'Log In'} /> */}
+          <button className='login-button' type='submit'>
+            Log In
+          </button>
         </form>
       </div>
     </div>

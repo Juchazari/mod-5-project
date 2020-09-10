@@ -23,8 +23,6 @@ const Projects = props => {
 
   // Creates a New Project
   const createNewProject = project => {
-    const { name, description } = project;
-
     fetch('http://localhost:3000/projects', {
       method: 'POST',
       headers: {
@@ -32,10 +30,7 @@ const Projects = props => {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({
-        name,
-        description
-      })
+      body: JSON.stringify(project)
     })
       .then(res => res.json())
       .then(project => {

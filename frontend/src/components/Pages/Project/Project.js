@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { MdAdd } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
+import { IoLogoBitbucket } from 'react-icons/io';
 import { CSSTransition } from 'react-transition-group';
 
 import './Project.css';
@@ -23,13 +26,17 @@ const Project = props => {
   const [modalPS, setModalPS] = useState(false);
   const [modalPD, setModalPD] = useState(false);
 
-  // State: Task Info or Data Modal
-  const [modalTI, setModalTI] = useState(false);
-  const [clickedTask, setClickedTask] = useState({});
+  // State: New Task Bucket states
+  const [newBucketActive, setNewBucketActive] = useState(false);
+  const [newBucketName, setNewBucketName] = useState('');
 
   // State: Bucket Delete Confirmation Modal
   const [modalTBD, setModalTBD] = useState(false);
   const [clickedBucketDelete, setClickedBucketDelete] = useState({});
+
+  // State: Task Info or Data Modal
+  const [modalTI, setModalTI] = useState(false);
+  const [clickedTask, setClickedTask] = useState({});
 
   // Fetch initial project data
   useEffect(() => {
@@ -73,6 +80,26 @@ const Project = props => {
         if (res.success) {
           props.history.push('/dashboard');
         }
+      });
+  };
+
+  const handleCreateBucket = () => {
+    fetch(`http://localhost:3000/task_buckets`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        project_id: project.id,
+        name: newBucketName
+      })
+    })
+      .then(res => res.json())
+      .then(taskBucket => {
+        setTaskBuckets([...taskBuckets, taskBucket]);
+        setNewBucketName('');
       });
   };
 
@@ -225,6 +252,35 @@ const Project = props => {
                 updateBucketName={updateBucketName}
               />
             ))}
+            <div className='task-bucket-wrapper'>
+              <div className='task-bucket'>
+                {newBucketActive ? (
+                  <div className='new-task-bucket-btn-active'>
+                    <input
+                      type='text'
+                      placeholder='Task bucket name...'
+                      value={newBucketName}
+                      onChange={e => setNewBucketName(e.target.value)}
+                      autoFocus
+                    />
+                    <div className='new-task-bucket-btn-controls'>
+                      <button onClick={handleCreateBucket}>
+                        Create bucket
+                      </button>
+                      <MdClose onClick={() => setNewBucketActive(false)} />
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className='new-task-bucket-btn-wrapper'
+                    onClick={() => setNewBucketActive(true)}
+                  >
+                    <IoLogoBitbucket />
+                    <h4>New Task Bucket</h4>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

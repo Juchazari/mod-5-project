@@ -7,6 +7,7 @@ import './ModalPS.css';
 
 const ModalPS = props => {
   const project = props.project;
+  const [projName, setProjName] = useState(project.name);
   const [projDesc, setProjDesc] = useState(project.description);
   const [status, setStatus] = useState(project.status);
   const [startDate, setStartDate] = useState('');
@@ -88,6 +89,14 @@ const ModalPS = props => {
         </div>
         <div className='ps-project-banner'></div>
         <div className='ps-body'>
+          <div className='project-name-section'>
+            <input
+              type='text'
+              value={projName}
+              onChange={e => setProjName(e.target.value)}
+              onBlur={() => props.updateProjectInfo({ name: projName })}
+            />
+          </div>
           <div className='project-description-section'>
             <div className='ps-pd-title'>
               <h3>Project Description</h3>

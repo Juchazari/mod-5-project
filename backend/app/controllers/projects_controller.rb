@@ -24,11 +24,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create(
+    project = Project.new(project_params)
+    project.user = @user
+    project.save
+
+    ProjectMember.create(
+      project: project,
       user: @user,
-      name: params[:name],
-      description: params[:description],
-      banner: "https://images.unsplash.com/photo-1515871204537-49a5fe66a31f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=974&q=80",
+      role: "Admin"
     )
 
     render json: project

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../icons/logo.svg';
 
 import Input from '../../Input/Input';
 // import auth from '../../Auth/auth';
@@ -14,11 +15,15 @@ const Signup = props => {
   return (
     <div className='signup-page'>
       <div className='signup-header'>
-        <h1>
-          <Link to='/'>LOGO</Link>
-        </h1>
+        <Link to='/' className='logo-link-wrapper'>
+          <Logo />
+          <h4>anager</h4>
+        </Link>
         <p>
-          Already have an account? <Link to='/login'>Log in</Link>
+          Already have an account?{' '}
+          <Link to='/login' className='login-button-link'>
+            Log in
+          </Link>
         </p>
       </div>
       <div className='signup-body'>
@@ -35,7 +40,9 @@ const Signup = props => {
           <div className='form-input-control'>
             <Input type={'password'} placeholder={'Password'} />
           </div>
-          <Input type={'submit'} value={'Create account'} />
+          <button className='signup-button' type='submit'>
+            Create account
+          </button>
         </form>
       </div>
     </div>

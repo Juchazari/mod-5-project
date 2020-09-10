@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_150939) do
+ActiveRecord::Schema.define(version: 2020_09_10_021854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "banners", force: :cascade do |t|
+    t.string "banner_url"
+  end
 
   create_table "checklist_item_assignees", force: :cascade do |t|
     t.bigint "checklist_item_id", null: false

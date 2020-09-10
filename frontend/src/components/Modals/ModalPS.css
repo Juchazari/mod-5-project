@@ -38,6 +38,7 @@
   background-color: white;
   border-radius: 10px 0px 0px 10px;
   box-shadow: -10px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  overflow: auto;
 }
 
 .sidebar-close-btn-wrapper {
@@ -74,6 +75,25 @@
 
 .ps-body {
   padding: 15px;
+}
+
+.project-name-section input {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  border-radius: 1px;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0 #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  color: #495057;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-name-section input:enabled:focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 0.2rem #a6d5fa;
+  border-color: #2196f3;
 }
 
 .project-description-section {
@@ -149,6 +169,7 @@
   background-color: #079b07;
 }
 
+.project-name-section,
 .project-startdate-section,
 .project-duedate-section,
 .project-completion-section,
